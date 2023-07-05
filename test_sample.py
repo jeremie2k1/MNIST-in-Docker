@@ -1,7 +1,7 @@
 from unittest import TestCase
-import numpy as np
 from test import load_dataset
 from test import load_model_test
+from test import np
 class Test(TestCase):
     def __int__(self):
         self.n_get = 50
