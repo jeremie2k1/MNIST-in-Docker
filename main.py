@@ -11,6 +11,8 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.models import load_model
+from keras.models import load_model
+
 
 
 # load dataset

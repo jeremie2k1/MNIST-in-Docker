@@ -1,6 +1,7 @@
 # make a prediction for a new image.
 import keras.utils
-from numpy import argmax
+# from numpy import argmax
+import numpy as np
 from keras.utils import img_to_array, load_img
 from keras.models import load_model
 
@@ -27,8 +28,8 @@ def run_example():
     model = load_model('model_mnist.h5')
     # predict the class
     predict_value = model.predict(img)
-    digit = argmax(predict_value)
-    print(digit)
+    digit = np.argmax(predict_value)
+    print('probability: ', np.max(predict_value), ' - ', 'predict result:', digit)
 
 
 if __name__ == '__main__':

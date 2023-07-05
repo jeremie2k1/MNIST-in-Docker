@@ -2,20 +2,10 @@ from tensorflow.keras.datasets import mnist
 from tensorflow.keras.models import load_model
 from tensorflow.keras.utils import to_categorical
 
+from main import load_dataset
 
-# load train and test dataset
-def load_dataset():
-    # load dataset
-    (trainX, trainY), (testX, testY) = mnist.load_data()
-    # reshape dataset to have a single channel
-    trainX = trainX.reshape((trainX.shape[0], 28, 28, 1))
-    testX = testX.reshape((testX.shape[0], 28, 28, 1))
-    # one hot encode target values
-    trainY = to_categorical(trainY)
-    testY = to_categorical(testY)
-    return trainX, trainY, testX, testY
-
-
+def load_model_test():
+    return load_model('model_mnist.h5')
 # scale pixels
 def prep_pixels(train, test):
     # convert from integers to floats
@@ -35,7 +25,7 @@ def run_test_harness():
     # prepare pixel data
     trainX, testX = prep_pixels(trainX, testX)
     # load model
-    model = load_model('model_mnist.h5')
+    model = load_model_test()
     # evaluate model on test dataset
     _, acc = model.evaluate(testX, testY, verbose=0)
     print('> %.3f' % (acc * 100.0))
