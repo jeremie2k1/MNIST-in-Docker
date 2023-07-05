@@ -2,6 +2,7 @@ from unittest import TestCase
 from test import load_dataset
 from test import load_model_test
 from test import np
+from test import tf
 class Test(TestCase):
     def __int__(self):
         self.n_get = 50
