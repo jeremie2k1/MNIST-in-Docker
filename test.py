@@ -1,8 +1,4 @@
-from tensorflow.keras.datasets import mnist
 from tensorflow.keras.models import load_model
-from tensorflow.keras.utils import to_categorical
-import tensorflow as tf
-import numpy as np
 
 from main import load_dataset
 

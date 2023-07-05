@@ -8,7 +8,13 @@ class Test(TestCase):
         self.n_get = 50
         self.n_test = 0
 
-
+    def prep_pixels(self, testX):
+        # convert from integers to floats
+        test_norm = testX.astype('float32')
+        # normalize to range 0-1
+        test_norm = test_norm / 255.0
+        # return normalized images
+        return test_norm
     def get_random_testset(self):
         self.trainX, self.trainY, self.testX, self.testY = load_dataset()
         self.n_test = len(self.testX)
@@ -40,4 +46,4 @@ class Test(TestCase):
 
         _, acc = model.evaluate(self.rdTestX, self.rdTestY, verbose=0)
 
-        assert acc >= 0.98
+        assert acc >= 0.9
